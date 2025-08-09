@@ -22,7 +22,7 @@ public class QuestionController {
   public String list(Model model) {
     List<Question> questionList = questionService.getList();
     model.addAttribute("questionList", questionList);
-    return "question/list_ex2";
+    return "question/list";
   }
 
   @GetMapping("/detail/{id}")

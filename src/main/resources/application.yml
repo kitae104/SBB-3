@@ -18,6 +18,13 @@ spring:
     restart:
       enabled: true
 
+  thymeleaf:
+    cache: false
+  web:
+    resources:
+      cache:
+        period: 0
+
   ####################################
   # MySQL 설정
   ####################################
