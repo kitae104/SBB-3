@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>상세 페이지</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
-  <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-</head>
-<body>
-  <div class="container my-3">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+
+  <div layout:fragment="content" class="container my-3">
     <!-- 질문 -->
     <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
     <div class="card my-3">
@@ -41,5 +38,4 @@
       <input type="submit" value="답변 등록" class="btn btn-primary my-2">
     </form>
   </div>
-</body>
 </html>

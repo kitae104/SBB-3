@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Question List</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
-  <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-</head>
-<body>
-  <div class="container my-3">
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout}">
+
+
+  <div layout:fragment="content" class="container my-3">
     <h1>질문 목록</h1>
     <table class="table table-striped">
       <thead class="table-dark">
@@ -27,6 +24,6 @@
         </tr>
       </tbody>
     </table>
+    <a th:href="@{/question/create}" class="btn btn-primary">질문 등록</a>
   </div>
-</body>
 </html>

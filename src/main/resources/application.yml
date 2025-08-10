@@ -24,6 +24,8 @@ spring:
     resources:
       cache:
         period: 0
+      chain:
+        cache: false
 
   ####################################
   # MySQL 설정
