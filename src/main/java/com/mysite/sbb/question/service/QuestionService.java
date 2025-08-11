@@ -1,5 +1,6 @@
 package com.mysite.sbb.question.service;
 
+import com.mysite.sbb.question.dto.QuestionFormDto;
 import com.mysite.sbb.question.entity.Question;
 import com.mysite.sbb.question.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +32,13 @@ public class QuestionService {
 //    Question question = questionRepository.findById(id)
 //        .orElseThrow(() -> new IllegalArgumentException("Question not found with id: " + id));
 //    return question;
+  }
+
+  public void create(QuestionFormDto questionFormDto) {
+    Question question = Question.builder()
+        .subject(questionFormDto.getSubject())
+        .content(questionFormDto.getContent())
+        .build();
+    questionRepository.save(question);
   }
 }
