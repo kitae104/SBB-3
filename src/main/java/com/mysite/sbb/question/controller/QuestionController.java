@@ -1,5 +1,6 @@
 package com.mysite.sbb.question.controller;
 
+import com.mysite.sbb.answer.dto.AnswerFormDto;
 import com.mysite.sbb.question.dto.QuestionFormDto;
 import com.mysite.sbb.question.entity.Question;
 import com.mysite.sbb.question.service.QuestionService;
@@ -27,7 +28,8 @@ public class QuestionController {
   }
 
   @GetMapping("/detail/{id}")
-  public String detail(@PathVariable("id") Long id, Model model) {
+  public String detail(@PathVariable("id") Long id, Model model,
+                       AnswerFormDto answerFormDto) { // 답변 등록 기능 시 추가
     Question question = questionService.getQuestion(id);
     model.addAttribute("question", question);
     return "question/detail";
