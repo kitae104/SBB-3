@@ -41,4 +41,12 @@ public class QuestionService {
         .build();
     questionRepository.save(question);
   }
+
+  public void create(String subject, String content) {
+    Question question = Question.builder()
+        .subject(subject)
+        .content(content)
+        .build();
+    questionRepository.save(question);
+  }
 }

@@ -41,22 +41,24 @@ public class QuestionController {
   }
 
   @PostMapping("/create")
-  public String createQuestion(@Valid QuestionFormDto questionFormDto, BindingResult bindingResult) {
-//  public String createQuestion(QuestionFormDto questionFormDto) {
-//  public String createQuestion(@RequestParam(value = "subject") String subject,
-//                               @RequestParam(value = "content") String content) {
-//    QuestionFormDto questionFormDto = QuestionFormDto.builder()
-//        .subject(subject)
-//        .content(content)
-//        .build();
+  public String createQuestion(@RequestParam(value = "subject") String subject,
+                               @RequestParam(value = "content") String content) {
 
-    if (bindingResult.hasErrors()) {
-      return "question/inputForm";
-    }
 
-    // 필요시 예외 처리 추가
-    questionService.create(questionFormDto);
+    questionService.create(subject, content);
+
     return "redirect:/question/list";
   }
+//  @PostMapping("/create")
+//  public String createQuestion(@Valid QuestionFormDto questionFormDto, BindingResult bindingResult) {
+//
+//    if (bindingResult.hasErrors()) {
+//      return "question/inputForm";
+//    }
+//
+//    // 필요시 예외 처리 추가
+//    questionService.create(questionFormDto);
+//    return "redirect:/question/list";
+//  }
 
 }
