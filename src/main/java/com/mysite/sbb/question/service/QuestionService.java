@@ -1,6 +1,6 @@
 package com.mysite.sbb.question.service;
 
-import com.mysite.sbb.question.dto.QuestionFormDto;
+import com.mysite.sbb.question.dto.QuestionDto;
 import com.mysite.sbb.question.entity.Question;
 import com.mysite.sbb.question.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class QuestionService {
 //    return question;
   }
 
-  public void create(QuestionFormDto questionFormDto) {
+  public void create(QuestionDto questionFormDto) {
     Question question = Question.builder()
         .subject(questionFormDto.getSubject())
         .content(questionFormDto.getContent())

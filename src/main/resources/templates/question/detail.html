@@ -39,8 +39,9 @@
       </div>
     </div>
   </div>
+
   <!-- 답변 작성 -->
-  <form th:action="@{/answer/create/{id}(id=${question.id})}" method="post" class="my-3" th:object="${answerFormDto}">
+  <form th:action="@{/answer/create/{id}(id=${question.id})}" method="post" class="my-3" th:object="${answerDto}">
     <textarea name="content" id="content" rows="10" class="form-control"></textarea>
     <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="fieldError">답변 내용을 입력하세요</p>
     <input type="submit" value="답변 등록" class="btn btn-primary my-2">

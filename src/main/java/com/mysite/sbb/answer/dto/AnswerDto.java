@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AnswerFormDto {
+public class AnswerDto {
 
   @NotEmpty(message = "내용은 필수 항목입니다.")
   private String content;

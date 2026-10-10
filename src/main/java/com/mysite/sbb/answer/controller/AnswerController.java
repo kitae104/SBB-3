@@ -1,8 +1,7 @@
 package com.mysite.sbb.answer.controller;
 
-import com.mysite.sbb.answer.dto.AnswerFormDto;
+import com.mysite.sbb.answer.dto.AnswerDto;
 import com.mysite.sbb.answer.service.AnswerService;
-import com.mysite.sbb.question.dto.QuestionFormDto;
 import com.mysite.sbb.question.entity.Question;
 import com.mysite.sbb.question.service.QuestionService;
 import jakarta.validation.Valid;
@@ -14,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -28,7 +26,7 @@ public class AnswerController {
   @PostMapping("/create/{id}")
   public String createAnswer(@PathVariable("id") Long id,
                              //@RequestParam(value = "content") String content,
-                             @Valid AnswerFormDto answerFormDto,
+                             @Valid AnswerDto answerFormDto,
                              BindingResult bindingResult,
                              Model model ) {
     Question question = questionService.getQuestion(id);

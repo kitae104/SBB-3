@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class QuestionFormDto {
+public class QuestionDto {
 
   @NotEmpty(message = "제목은 필수항목입니다.")
   @Size(max = 200, message = "제목은 200자 이내로 입력해주세요.")
