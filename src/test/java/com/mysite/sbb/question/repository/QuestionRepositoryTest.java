@@ -1,6 +1,8 @@
 package com.mysite.sbb.question.repository;
 
+import com.mysite.sbb.question.dto.QuestionDto;
 import com.mysite.sbb.question.entity.Question;
+import com.mysite.sbb.question.service.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +17,9 @@ class QuestionRepositoryTest {
 
   @Autowired
   private QuestionRepository questionRepository;
+
+  @Autowired
+  private QuestionService questionService;
 
   @Test
   void testSave(){
@@ -48,5 +53,18 @@ class QuestionRepositoryTest {
     Question question = questionList.get(0);
     assertEquals("sbb가 무엇인가요?", question.getSubject());
 
+  }
+
+  @Test
+  void testMakeData() {
+    for (int i = 1; i <= 300; i++) {
+        String subject = String.format("테스트 데이터입니다:[%03d]", i);
+        String content = "내용무";
+        QuestionDto question = QuestionDto.builder()
+            .subject(subject)
+            .content(content)
+            .build();
+        questionService.create(question);
+    }
   }
 }

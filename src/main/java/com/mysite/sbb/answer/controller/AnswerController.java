@@ -26,7 +26,7 @@ public class AnswerController {
   @PostMapping("/create/{id}")
   public String createAnswer(@PathVariable("id") Long id,
                              //@RequestParam(value = "content") String content,
-                             @Valid AnswerDto answerFormDto,
+                             @Valid AnswerDto answerDto,
                              BindingResult bindingResult,
                              Model model ) {
     Question question = questionService.getQuestion(id);
@@ -34,8 +34,8 @@ public class AnswerController {
       model.addAttribute("question", question);
       return "question/detail";
     }
-    answerService.create(question, answerFormDto.getContent());
-    log.info("Creating answer for question ID: {}, content: {}", id, answerFormDto.getContent());
+    answerService.create(question, answerDto.getContent());
+    log.info("Creating answer for question ID: {}, content: {}", id, answerDto.getContent());
     return "redirect:/question/detail/" + id;
   }
 }
