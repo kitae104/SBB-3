@@ -91,6 +91,8 @@
 
     Array.from(page_elements).forEach(function (element) {
       element.addEventListener('click', function () { // forEach 메서드를 사용하여 각 page-link 요소에 대해 클릭 이벤트 리스너를 추가
+        // HTML에서 개발자가 필요한 데이터를 요소에 저장할 수 있도록 정해 놓은 표준 : data-* 속성
+        // dataset 속성을 사용하면 data-* 속성에 접근 가능
         document.getElementById('page').value = this.dataset.page;  // 클릭 이벤트가 발생하면, 해당 버튼의 data-page 속성 값을 읽어와 숨겨진 폼 필드 page의 값으로 설정
         document.getElementById('searchForm').submit(); // 사용자가 선택한 페이지 번호가 서버로 전송
       });
